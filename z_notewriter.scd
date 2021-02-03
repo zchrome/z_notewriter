@@ -30,7 +30,7 @@ OSCdef.new(\liveResponder, { | msg |
 // A meta function for writing a specific scale into a slot
 // MakeScale support all scales in SuperCollider, accessed with "Scales.directory":
 
-~metaMakeScale = {
+~makeScale = {
 	|trackNo = 0, slotNo = 1, scaleNo = 0, root = 64|
 	var scaleList, scale, degrees, scaleName, makeNotes;
 	scaleList = Scale.names.collect({
@@ -46,13 +46,13 @@ OSCdef.new(\liveResponder, { | msg |
 
 // Call the function
 
-~metaMakeScale.(trackNo: 0, slotNo: 0, scaleNo: 25, root: 60);
+~makeScale.(trackNo: 0, slotNo: 0, scaleNo: 25, root: 60);
 
 // Can be used with some randomness to give the user a few scales to choose from:
 
 5.do({
 	|item, index|
-	~metaMakeScale.(0, index, 107.rand, 60);
+	~makeScale.(0, index, 107.rand, 60);
 });
 
 // Supply simplified dictionaries for Western scales and modal scales?
